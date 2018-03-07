@@ -1,0 +1,21 @@
+<% @cats.each do |cat| %>
+  <table>
+    <tr>
+      <th>name</th>
+      <th>age</th>
+      <th>color</th>
+      <th>sex</th>
+      <th>description</th>
+    </tr>
+
+    <tr>
+      <td><%= cat.name %></td>
+      <td><%= cat.age %></td>
+      <td><%= cat.color %></td>
+      <td><%= cat.sex %></td>
+      <td><%= cat.description %></td>
+    </tr>
+  </table>
+
+  <%= link_to 'Cat detail', cat_url(cat) %>
+<% end %>
