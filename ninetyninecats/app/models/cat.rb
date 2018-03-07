@@ -13,12 +13,20 @@
 #
 
 class Cat < ApplicationRecord
+
   validates_inclusion_of :sex, :in => %w( M F )
   validates :birth_date, :color, :name, :sex, :description, presence: true
+
+  has_many :cat_rental_requests,
+           foreign_key: :cat_id,
+           class_name: :CatRentalRequest,
+           dependent: :destroy
 
   COLORS = %w( red orange yellow green blue purple )
 
   def age
     ((Date.today - self.birth_date) / 365.25).floor
   end
+
+
 end
